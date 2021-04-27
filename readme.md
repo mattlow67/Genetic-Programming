@@ -1,7 +1,7 @@
 ## Genetic Programming Applied as Arithmetic Expressions
 Genetic algorithms, being based on the theory of evolution, imitate natural selection by producing randomized solutions that are evaluated for their “fitness.” The “fittest” solutions are then “bred,” producing another generation of recombined solutions. Genetic programming is a subset of genetic algorithms in that it is only applied to written computer programs. The ultimate goal of genetic programming is to autonomously generate efficient computer programs that are perfected through “natural selection.” 
 
-In this implementation of genetic programming, quadratic arithmetic expressions represent the individuals of a population. Naturally, each organism has a unique quality of fitness, which is represented by a fitness value derived from evaluating an expression. Every expression is composed of operators, constant integers, and variables, which are randomly set as global parameters at the beginning of every program execution. The range of integers is from -9 to +9; the variables used are x, y, and z; and the operators are +, -, and *.
+In this implementation of genetic programming written in **Common Lisp**, quadratic arithmetic expressions represent the individuals of a population. Naturally, each organism has a unique quality of fitness, which is represented by a fitness value derived from evaluating an expression. Every expression is composed of operators, constant integers, and variables, which are randomly set as global parameters at the beginning of every program execution. The range of integers is from -9 to +9; the variables used are x, y, and z; and the operators are +, -, and *.
 
 Lisp uses prefix notation to represent arithmetic expressions. For example,
 >9 * (3 + 5)  
@@ -28,10 +28,10 @@ Offspring:
 >(* (* 1 x x) 2 (* 2)) 3 y)
 	
 Mutation simply changes a single element in an expression to something random.
->(* x (+ 4 -7 y) 5 (- z 1))
+>(* x (+ **4** -7 y) 5 (- z 1))
 
 Becomes
->(* x (+ -8 -7 y) 5 (- z 1))
+>(* x (+ **-8** -7 y) 5 (- z 1))
 	
 In short, this program follows the procedure:
 1. For the first generation, set the global variables x, y, and z to randomized values (from -9 to +9) and generate 50 randomized arithmetic expressions
