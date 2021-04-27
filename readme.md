@@ -1,5 +1,5 @@
 ## Genetic Programming Applied as Arithmetic Expressions
-Genetic algorithms, being based on the theory of evolution, imitate natural selection by producing randomized solutions that are evaluated for their “fitness.” The “fittest” solutions are then “bred,” producing another generation of recombined solutions. Genetic programming is a subset of genetic algorithms in that it is only applied to written computer programs. The ultimate goal of genetic programming is to autonomously generate efficient computer programs that are perfected through “natural selection.” 
+Genetic algorithms, being based on the theory of evolution, imitate natural selection by producing randomized solutions that are evaluated for their “fitness.” The “fittest” solutions are then “bred,” producing another generation of recombined solutions. Genetic programming is a subset of genetic algorithms in that it is applied to written computer programs. The ultimate goal of genetic programming is to autonomously generate efficient computer programs that are perfected through “natural selection.” 
 
 In this implementation of genetic programming written in **Common Lisp**, quadratic arithmetic expressions represent the individuals of a population. Naturally, each organism has a unique quality of fitness, which is represented by a fitness value derived from evaluating an expression. Every expression is composed of operators, constant integers, and variables, which are randomly set as global parameters at the beginning of every program execution. The range of integers is from -9 to +9; the variables used are x, y, and z; and the operators are +, -, and *.
 
@@ -15,7 +15,7 @@ The fitness of every expression is evaluated to determine its fitness.
 >Global variables: x = 5, y = 3, z =8  
 >(- (* 3 x 4) (+ y (* 8 z) (* x (+ 5 -8 z y)))) = -47
 
-Each generation in the population is set to 50 individuals with their “genes” derived from the single fittest organism of the previous generation. The expression with the highest fitness score in any generation is bred with all other 49 organisms, and their “DNA” is recombined via crossover and mutation.
+Each generation in the population is set to 50 individuals with their “genes” derived from the single fittest organism of the previous generation. The pair of expressions with the highest fitness scores in any generation are bred together, and their offspring are added to the next generation's pool of individuals.
 
 Crossover picks two random points in a “gene” (in this case, an expression) and combines the snippet with another gene at the same point.
 
@@ -35,10 +35,10 @@ Becomes
 	
 In short, this program follows the procedure:
 1. For the first generation, set the global variables x, y, and z to randomized values (from -9 to +9) and generate 50 randomized arithmetic expressions
-2. Evaluate each expression and find the one with the highest fitness value
-3. Subject the fittest expression to crossover and mutation with the other 49 expressions in the current generation
-4. Add the 49 offspring and the fittest individual (making a total of 50 individuals) to the next generation while completely purging the leftover 49 individuals of the previous generation
-5. Repeat steps 2-5 for a fixed number of generations (which is 500, in this case)
+2. Evaluate each expression and find the pair with the highest fitness values
+3. Subject the fittest expressions to crossover and mutation to produce two new offspring
+4. Add the new offspring to the next generation's pool and populate it with 48 randomized individuals, then purge the previous generation
+5. Repeat steps 2-5 for a fixed number of generations (which is 50, in this case)
 
 ## Instructions
 1. Install common lisp
