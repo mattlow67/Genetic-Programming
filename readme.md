@@ -20,7 +20,7 @@ Each generation in the population is set to 50 individuals with their “genes�
 Crossover picks two random points in a “gene” (in this case, an expression) and combines the snippet with another gene at the same point.
 
 | = crossover point
->(+ |(* 1 x x) 2 | 0 (* -3 x y z)) <- fittest individual
+>(+ |(* 1 x x) 2 | 0 (* -3 x y z)) <- fittest individual  
 >(* |(* 4 (- x -7)| (* 2)) 3 y) <- individual in same generation
 
 Offspring:
