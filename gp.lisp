@@ -9,15 +9,7 @@
 	returned to the next generation's pool with their two offspring. 
 	The 'family,' initial to being placed in the succeeding generation's
 	pool, is subjected to the genetic operators of crossover and mutation.
-	50 generations are run in total. 	
-
-   Contact Info:
-	Matthew Low
-	CPSC 481
-	Prof. Charles Siska
-	Weds 7-9:45PM
-	mcorelow@csu.fullerton.edu
-	CWID: 891556854
+	50 generations are run in total.
 |#
 
 ;; global variables 
