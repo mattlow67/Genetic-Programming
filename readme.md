@@ -4,7 +4,8 @@ Genetic algorithms, being based on the theory of evolution, imitate natural sele
 In this implementation of genetic programming written in **Common Lisp**, quadratic arithmetic expressions represent the individuals of a population. Naturally, each organism has a unique quality of fitness, which is represented by a fitness value derived from evaluating an expression. Every expression is composed of operators, constant integers, and variables, which are randomly set as global parameters at the beginning of every program execution. The range of integers is from -9 to +9; the variables used are x, y, and z; and the operators are +, -, and *.
 
 Lisp uses prefix notation to represent arithmetic expressions. For example,
->9 * (3 + 5)  
+>9 * (3 + 5)
+
 is written as
 >\* 9 (+ 3 5)
 
@@ -21,7 +22,7 @@ Crossover picks two random points in a “gene” (in this case, an expression) 
 
 | = crossover point
 >(+ |(* 1 x x) 2 | 0 (* -3 x y z)) <- fittest individual  
->(* |(* 4 (- x -7)| (* 2)) 3 y) <- individual in same generation
+>(* |(* 4 (- x -7)| (* 2)) 3 y) <- second fittest individual
 
 Offspring:
 >(+ (* 4 (- x -7) 0 (* -3 x y z))  
@@ -37,7 +38,7 @@ In short, this program follows the procedure:
 1. For the first generation, set the global variables x, y, and z to randomized values (from -9 to +9) and generate 50 randomized arithmetic expressions
 2. Evaluate each expression and find the pair with the highest fitness values
 3. Subject the fittest expressions to crossover and mutation to produce two new offspring
-4. Add the new offspring and the parents to the next generation's pool and populate it with 46 randomized individuals while purging the previous generation
+4. Add the new offspring and the parents to the next generation's pool and populate the new pool with 46 randomized individuals while purging the previous generation
 5. Repeat steps 2-5 for a fixed number of generations (which is 50, in this case)
 
 ## Instructions
@@ -47,5 +48,3 @@ In short, this program follows the procedure:
 3. Run the command
    >clisp gp.lisp
 4. Review results printed to the terminal and “data.txt”
-
-
